@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace AprendiendoRazorPages.Pages
@@ -10,9 +11,12 @@ namespace AprendiendoRazorPages.Pages
     {
         public string Message { get; set; }
 
-        public void OnGet()
+        [TempData]
+        public string Nombre { get; set; }
+
+        public void OnGet(int? id, int? pg)
         {
-            Message = "Your contact page.";
+            Message = "Your contact page. Id: "+id.ToString() + pg.ToString();
         }
     }
 }
